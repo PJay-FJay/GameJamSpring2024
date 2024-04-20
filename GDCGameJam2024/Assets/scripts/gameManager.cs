@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
 
+    public gameOver gameOver;
     public GameObject[] spt;
     public GameObject enemy, tank, speed, beetle, player;
     public int random;
     private float tSp = 1.1f;
 
+    public void GameOver(){
+        gameOver.SetUp();
+    }
+
     public void restart(){
+        gameOver.StartUp();
         Time.timeScale = 1;
         SceneManager.LoadScene("TestMap");
     }
@@ -20,18 +27,18 @@ public class gameManager : MonoBehaviour
         //print("MewoForSpawn");
         //random = Random.Range(1, 1);
         int health = player.GetComponent<playerHealth>().currHP;
-
         random = Random.Range(1,9);
+        
         if(health <= 0){
             random = 10;
         }
 
         //Basic enemy
         if(random >= 2 && random < 5){
-            //random = Random.Range(1,6);
             int sTar = Random.Range(1,8);
             Instantiate(enemy, spt[sTar-1].transform.position, Quaternion.identity);
             Invoke("Spawn", tSp);
+
         //Speedy Enemy
         } else if(random >= 5 && random < 8){
             int sTar = Random.Range(1,8);
@@ -55,6 +62,7 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //gameOver.StartUp();
         player = GameObject.Find("Player");
         Invoke("Spawn", tSp);
     }
@@ -62,6 +70,9 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        int heath = player.GetComponent<playerHealth>().currHP;
+        if(heath <= 0){
+            GameOver();
+        }
     }
 }
