@@ -84,11 +84,12 @@ public class playerHealth : MonoBehaviour
     // Update is called once per frame
     void Update(){
         //For now temporarily set a key to test the health
-        if(Input.GetKeyDown(KeyCode.Tab)){
+        /*if(Input.GetKeyDown(KeyCode.Tab)){
             TakeDamage(3);
-        }
+        }*/
 
         if(currHP <= 0){
+            gameObject.SetActive(false);
             print("Game Over");
 
         }

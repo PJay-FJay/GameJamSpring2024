@@ -12,6 +12,7 @@ public class enemyHealth : MonoBehaviour
     private SpriteRenderer mySR;
 
     public GameObject Score;
+    public GameObject Sound;
 
     //public GameObject enemy;
 
@@ -45,6 +46,10 @@ public class enemyHealth : MonoBehaviour
             gameObject.SetActive(false);
             gameObject.SetActive(true);
         }
+
+        if(collision.gameObject.tag == "dp"){
+            Destroy(gameObject);
+        }
     }
 
     void Start()
@@ -52,6 +57,7 @@ public class enemyHealth : MonoBehaviour
         currHP = maxHP;
         myBC = gameObject.GetComponent<BoxCollider2D>();
         Score = GameObject.Find("Score");
+        Sound = GameObject.Find("SFX");
     }
 
     void Update()
@@ -63,12 +69,27 @@ public class enemyHealth : MonoBehaviour
                 case "Enemy":
                     print("Ouch");
                     Score.GetComponent<score>().pts += 200;
+                    Sound.GetComponent<sfwScript>().playEhurt();
                     break;
                 case "Tank":
                     print("YOUCH!");
                     Score.GetComponent<score>().pts += 500;
                     break;
                 case "Speed":
+                    print("AGH IM DYING");
+                    Score.GetComponent<score>().pts += 100;
+                    break;
+
+                case "Enemy(Clone)":
+                    print("Ouch");
+                    Score.GetComponent<score>().pts += 200;
+                    Sound.GetComponent<sfwScript>().playEhurt();
+                    break;
+                case "Tank(Clone)":
+                    print("YOUCH!");
+                    Score.GetComponent<score>().pts += 500;
+                    break;
+                case "Speed(Clone)":
                     print("AGH IM DYING");
                     Score.GetComponent<score>().pts += 100;
                     break;

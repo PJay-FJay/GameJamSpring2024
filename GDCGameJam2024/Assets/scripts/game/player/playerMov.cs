@@ -16,11 +16,14 @@ public class playerMov : MonoBehaviour
     Vector2 move;
     Vector2 mousePos;
 
+    public GameObject Sound;
+
     //Is called upon the program being active (Like start())                                                                                //We do a lil tomfoolery here
     private void Awake(){
 
         //From here we get the component from Unity || This will tell our script "HEY HERES THE THING YOU NEEDED FROM THE STORE!!!!"
         rd = GetComponent<Rigidbody2D>();
+        Sound = GameObject.Find("SFX");
 
     }
     
@@ -39,6 +42,7 @@ public class playerMov : MonoBehaviour
             
             //This calls a function in our weapon script and runs it.
             weapon.Fire();
+            Sound.GetComponent<sfwScript>().playPew();
 
         }
 
