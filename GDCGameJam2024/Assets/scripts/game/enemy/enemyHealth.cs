@@ -68,11 +68,12 @@ public class enemyHealth : MonoBehaviour
                     print("YOUCH!");
                     Score.GetComponent<score>().pts += 500;
                     break;
-                case "Speedy":
+                case "Speed":
                     print("AGH IM DYING");
                     Score.GetComponent<score>().pts += 100;
                     break;
             }
+
             Destroy(gameObject);
         }
     }
