@@ -13,6 +13,8 @@ public class gameManager : MonoBehaviour
     public int random;
     private float tSp = 1.1f;
 
+    public GameObject Sound;
+
     public void GameOver(){
         gameOver.SetUp();
     }
@@ -62,9 +64,10 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //gameOver.StartUp();
         player = GameObject.Find("Player");
         Invoke("Spawn", tSp);
+        Sound = GameObject.Find("SFX");
+        Sound.GetComponent<sfwScript>().playGameMusic();
     }
 
     // Update is called once per frame
@@ -72,6 +75,7 @@ public class gameManager : MonoBehaviour
     {
         int heath = player.GetComponent<playerHealth>().currHP;
         if(heath <= 0){
+            Sound.GetComponent<sfwScript>().stopGameMusic();
             GameOver();
         }
     }

@@ -12,9 +12,14 @@ public class playerHealth : MonoBehaviour
     public healthBar healthBar;
     private BoxCollider2D myBC;
 
+    //
+    public GameObject Sound;
+    
+
     //Function for taking damage and updating the health bar when needed with any given value
     void TakeDamage(int dmg){
         currHP -= dmg;
+        Sound.GetComponent<sfwScript>().playPhurt();
         healthBar.setHealth(currHP);
     }
 
@@ -79,6 +84,7 @@ public class playerHealth : MonoBehaviour
         currHP = maxHP;
         healthBar.setMaxHealth(maxHP);
         myBC = gameObject.GetComponent<BoxCollider2D>();
+        Sound = GameObject.Find("SFX");
     }
 
     // Update is called once per frame

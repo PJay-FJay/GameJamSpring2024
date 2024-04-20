@@ -67,31 +67,35 @@ public class enemyHealth : MonoBehaviour
             //Can put point in here
             switch(gameObject.name){
                 case "Enemy":
-                    print("Ouch");
+                    //print("Ouch");
                     Score.GetComponent<score>().pts += 200;
-                    Sound.GetComponent<sfwScript>().playEhurt();
+                    Sound.GetComponent<sfwScript>().playEded();
                     break;
                 case "Tank":
-                    print("YOUCH!");
+                    //print("YOUCH!");
                     Score.GetComponent<score>().pts += 500;
+                    Sound.GetComponent<sfwScript>().playEded();
                     break;
                 case "Speed":
-                    print("AGH IM DYING");
+                    //print("AGH IM DYING");
                     Score.GetComponent<score>().pts += 100;
+                    Sound.GetComponent<sfwScript>().playEded();
                     break;
 
                 case "Enemy(Clone)":
-                    print("Ouch");
+                    //print("Ouch");
                     Score.GetComponent<score>().pts += 200;
-                    Sound.GetComponent<sfwScript>().playEhurt();
+                    Sound.GetComponent<sfwScript>().playEded();
                     break;
                 case "Tank(Clone)":
-                    print("YOUCH!");
+                    //print("YOUCH!");
                     Score.GetComponent<score>().pts += 500;
+                    Sound.GetComponent<sfwScript>().playEded();
                     break;
                 case "Speed(Clone)":
-                    print("AGH IM DYING");
+                    //print("AGH IM DYING");
                     Score.GetComponent<score>().pts += 100;
+                    Sound.GetComponent<sfwScript>().playEded();
                     break;
             }
 

@@ -27,6 +27,6 @@ public class gameOver : MonoBehaviour
     }
 
     public void Exit(){
-        SceneManager.LoadScene("TestMap");
+        SceneManager.LoadScene("mainMenu");
     }
 }
