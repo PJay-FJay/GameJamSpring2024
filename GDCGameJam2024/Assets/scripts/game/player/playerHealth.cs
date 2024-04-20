@@ -20,20 +20,57 @@ public class playerHealth : MonoBehaviour
 
     private void DelayDamage(){
         myBC.enabled=false;
-            gameObject.SetActive(false);
-            gameObject.SetActive(true);
-        
-        Invoke("EnableDamage", 0.1f);
-       
+        Invoke("EnableDamage", 1f);
+    }
 
+    private void EnableDamage(){
+        myBC.enabled=true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
 
         //Destroys the gameObject upon colliding with a box collider of some sort
-        if(collision.gameObject.name == "enemy(close)" || collision.gameObject.name == "enemy"){
-            TakeDamage(2);
-            DelayDamage();
+        if(collision.gameObject.tag == "enemy"){
+            
+            switch(collision.gameObject.name){
+                case "Tank":
+                    print("TANK!");
+                    TakeDamage(5);
+                    DelayDamage();
+                    break;
+                
+                case "Tank(Clone)":
+                    print("TANK!");
+                    TakeDamage(5);
+                    DelayDamage();
+                    break;
+
+                case "Enemy":
+                    print("UWU");
+                    TakeDamage(2);
+                    DelayDamage();
+                    break;
+
+                case "Enemy(Clone)":
+                    print("UWU");
+                    TakeDamage(2);
+                    DelayDamage();
+                    break;
+
+                case "Speed(Clone)":
+                    print("OWO");
+                    TakeDamage(2);
+                    DelayDamage();
+                    break;
+
+                case "Speed":
+                    print("OWO");
+                    TakeDamage(1);
+                    DelayDamage();
+                    break;
+            }
+
+            
         }
     }
 
@@ -41,6 +78,7 @@ public class playerHealth : MonoBehaviour
     void Start(){
         currHP = maxHP;
         healthBar.setMaxHealth(maxHP);
+        myBC = gameObject.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -49,6 +87,12 @@ public class playerHealth : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab)){
             TakeDamage(3);
         }
+
+        if(currHP <= 0){
+            print("Game Over");
+
+        }
+
     }
 
     

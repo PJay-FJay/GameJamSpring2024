@@ -49,21 +49,21 @@ public class playerMov : MonoBehaviour
             transform.position = temp;
         }
 
-        if(transform.position.y < -5){              //Floor
+        if(transform.position.y < -5){              
             Vector3 temp = transform.position;
             temp.y = -5;
             transform.position = temp;
         }
 
-        if(transform.position.x > 8.7f){
+        if(transform.position.x > 10.7f){            //Floor
             Vector3 temp = transform.position;
-            temp.x = 8.7f;
+            temp.x = 10.7f;
             transform.position = temp;
         }
 
-        if(transform.position.x < -8.7f){
+        if(transform.position.x < -10.7f){
             Vector3 temp = transform.position;
-            temp.x = -8.7f;
+            temp.x = -10.7f;
             transform.position = temp;
         }
         

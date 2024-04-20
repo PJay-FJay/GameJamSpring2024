@@ -40,13 +40,18 @@ public class enemyHealth : MonoBehaviour
             TakeDamage(2);
             DelayDamage();
         }
+
+        if(collision.gameObject.name == "Player"){
+            gameObject.SetActive(false);
+            gameObject.SetActive(true);
+        }
     }
 
     void Start()
     {
         currHP = maxHP;
         myBC = gameObject.GetComponent<BoxCollider2D>();
-        Score = GameObject.Find("PScore");
+        Score = GameObject.Find("Score");
     }
 
     void Update()
@@ -54,7 +59,20 @@ public class enemyHealth : MonoBehaviour
 
         if(currHP <= 0){
             //Can put point in here
-            //Score.GetComponent<score>().pts += 100;
+            switch(gameObject.name){
+                case "Enemy":
+                    print("Ouch");
+                    Score.GetComponent<score>().pts += 200;
+                    break;
+                case "Tank":
+                    print("YOUCH!");
+                    Score.GetComponent<score>().pts += 500;
+                    break;
+                case "Speedy":
+                    print("AGH IM DYING");
+                    Score.GetComponent<score>().pts += 100;
+                    break;
+            }
             Destroy(gameObject);
         }
     }
