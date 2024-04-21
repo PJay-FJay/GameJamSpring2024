@@ -10,7 +10,7 @@ public class menuMusic : MonoBehaviour
     void Start()
     {
         Sound = GameObject.Find("SFX");
-        Sound.GetComponent<sfwScript>().playMenuMusic();
+        Sound.GetComponent<sfwScript>().playHTPMusic();
     }
 
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3580753278493898028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bulletPt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 3580753279253632493}
   - component: {fileID: 3580753279253632486}
   - component: {fileID: 3580753279253632489}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,9 +106,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 442293419
+  m_SortingLayer: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.54990655, g: 0.26873443, b: 0.5754717, a: 1}
   m_FlipX: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
   rd: {fileID: 3580753279253632490}
   ms: 5
   weapon: {fileID: 3580753279995820891}
+  Sound: {fileID: 0}
 --- !u!114 &3580753279253632489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +198,7 @@ MonoBehaviour:
   maxHP: 15
   currHP: 0
   healthBar: {fileID: 0}
+  Sound: {fileID: 0}
 --- !u!1 &3580753279995820893
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +210,7 @@ GameObject:
   - component: {fileID: 3580753279995820890}
   - component: {fileID: 3580753279995820888}
   - component: {fileID: 3580753279995820891}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

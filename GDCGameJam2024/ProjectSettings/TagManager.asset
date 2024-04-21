@@ -7,6 +7,7 @@ TagManager:
   - enemy
   - dp
   - enemySp
+  - bkg
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
+  - objects
   - 
-  - 
-  - 
+  - bkg
   - 
   - 
   - 
@@ -43,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Objects
+    uniqueID: 1648772667
+    locked: 0
+  - name: Background
+    uniqueID: 442293419
     locked: 0
